@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Megat Mohammad Akif | Senior Data Analyst</title>
+  <meta name="description" content="Senior Data Analyst building data platforms, Power BI and AI tools, from pipelines to dashboards to AI you can ask.">
+  <meta name="theme-color" content="#f6f7f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e0e" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Megat Mohammad Akif | Senior Data Analyst">
+  <meta property="og:description" content="I build the data platform behind decisions, from pipelines to dashboards to AI you can ask.">
+  <meta property="og:url" content="https://boshwazi.github.io/portfolioSite/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    // Apply a saved theme before first paint, and flag that JS is running.
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- Phosphor Icons (regular), MIT licence -->
+    <symbol id="i-sun" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 256 256"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <canvas class="field" data-field aria-hidden="true"></canvas>
+
+  <header class="nav" data-nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Megat Mohammad Akif, back to top">MA</a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#what">What I do</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <h1 id="hero-title" class="hero-title" aria-label="Hi, I'm Akif">
+          <span class="hello" aria-hidden="true" data-intro style="--d:0">Hi, I'm</span>
+          <span class="line" aria-hidden="true"><span data-intro style="--d:1">A</span><span data-intro style="--d:1.5">k</span><span data-intro style="--d:2">i</span><span data-intro style="--d:2.5">f</span></span>
+        </h1>
+        <p class="eyebrow" data-intro style="--d:3">Senior Data Analyst, YTL Construction</p>
+        <p class="lede" data-intro style="--d:4">
+          <span class="sr-only">I build data platforms behind decisions. I build pipelines, dashboards and automation. I build apps and AI tools teams actually use.</span>
+          <span class="lede-static" aria-hidden="true">I build</span>
+          <span class="lede-typed" aria-hidden="true"><span class="typed" data-typed='["data platforms behind decisions.", "pipelines, dashboards and automation.", "apps and AI tools teams actually use."]'>data platforms behind decisions.</span><span class="caret"></span></span>
+        </p>
+        <div class="ctas" data-intro style="--d:5">
+          <a class="btn btn-primary" href="#work">See projects<svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sheet sheet-a" id="what" aria-labelledby="what-title">
+      <div class="wrap">
+        <h2 id="what-title" class="h2" data-reveal>What I do</h2>
+        <p class="section-lede" data-reveal>Four parts of one job: getting data from its source to a decision someone can act on.</p>
+
+        <div class="rail" data-rail data-reveal>
+          <div class="rail-track" aria-hidden="true"><span class="rail-fill"></span></div>
+
+          <div class="cap" style="--i:1">
+            <button class="cap-btn" type="button" id="cap-1" aria-expanded="true" aria-controls="cap-p-1">
+              <span class="cap-dot" aria-hidden="true"></span>
+              <span class="cap-name">Data engineering</span>
+            </button>
+            <div class="cap-panel" id="cap-p-1" role="region" aria-labelledby="cap-1">
+              <div class="cap-inner">
+                <h3>Build the platform underneath</h3>
+                <p>End-to-end pipelines from ingestion through a bronze, silver and gold medallion model to serving layers for BI and AI, on a Microsoft Fabric capacity I set up and run.</p>
+                <ul class="tags"><li>Microsoft Fabric</li><li>Azure SQL</li><li>SQL</li><li>Python</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cap" style="--i:2">
+            <button class="cap-btn" type="button" id="cap-2" aria-expanded="false" aria-controls="cap-p-2">
+              <span class="cap-dot" aria-hidden="true"></span>
+              <span class="cap-name">Analytics and BI</span>
+            </button>
+            <div class="cap-panel" id="cap-p-2" role="region" aria-labelledby="cap-2">
+              <div class="cap-inner">
+                <h3>Turn data into decisions</h3>
+                <p>Semantic models and Power BI reports that leadership actually uses, consolidated and embedded in one place so teams stop rebuilding the same numbers.</p>
+                <ul class="tags"><li>Power BI</li><li>DAX</li><li>Semantic models</li><li>Power BI Embedded</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cap" style="--i:3">
+            <button class="cap-btn" type="button" id="cap-3" aria-expanded="false" aria-controls="cap-p-3">
+              <span class="cap-dot" aria-hidden="true"></span>
+              <span class="cap-name">AI integration</span>
+            </button>
+            <div class="cap-panel" id="cap-p-3" role="region" aria-labelledby="cap-3">
+              <div class="cap-inner">
+                <h3>Put AI where the work happens</h3>
+                <p>Plain-language questions on governed data, locally hosted RAG systems and MCP tooling that automates Power BI work. I also drive company-wide AI adoption with YTL AI Labs (ILMU).</p>
+                <ul class="tags"><li>LLMs</li><li>RAG</li><li>Power BI MCP</li><li>n8n</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cap" style="--i:4">
+            <button class="cap-btn" type="button" id="cap-4" aria-expanded="false" aria-controls="cap-p-4">
+              <span class="cap-dot" aria-hidden="true"></span>
+              <span class="cap-name">Product and leadership</span>
+            </button>
+            <div class="cap-panel" id="cap-p-4" role="region" aria-labelledby="cap-4">
+              <div class="cap-inner">
+                <h3>Ship it and get it adopted</h3>
+                <p>I lead a team of three analysts and own data products from requirements to executive showcase, prioritised by business value and measured by usage. I also run Power BI training across departments.</p>
+                <ul class="tags"><li>Product ownership</li><li>Team leadership</li><li>Stakeholders</li><li>Training</li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sheet sheet-b" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <h2 id="work-title" class="h2" data-reveal>Selected work</h2>
+
+        <div class="work" data-work>
+          <div class="work-list">
+
+            <article class="proj" data-proj>
+              <h3 class="proj-title">One data platform, end to end</h3>
+              <p class="proj-sub">From raw sources to one governed layer that everything reads from.</p>
+              <figure class="proj-fig">
+                <svg class="dg" viewBox="0 0 528 200" role="img" aria-label="Sources flow through bronze, silver and gold layers on Microsoft Fabric, then out to DataHub and to AI and RAG.">
+                  <path class="w" pathLength="1" style="--k:0" d="M96 110H120"/>
+                  <path class="w" pathLength="1" style="--k:1" d="M200 110H224"/>
+                  <path class="w" pathLength="1" style="--k:2" d="M304 110H328"/>
+                  <path class="w" pathLength="1" style="--k:3" d="M408 110C422 110 418 60 432 60"/>
+                  <path class="w" pathLength="1" style="--k:3" d="M408 110C422 110 418 160 432 160"/>
+                  <path class="w w-soft" pathLength="1" style="--k:4" d="M120 150V156H408V150"/>
+                  <g class="n"><rect x="16" y="90" width="80" height="40"/><text x="56" y="110">Sources</text></g>
+                  <g class="n"><rect x="120" y="90" width="80" height="40"/><text x="160" y="110">Bronze</text></g>
+                  <g class="n"><rect x="224" y="90" width="80" height="40"/><text x="264" y="110">Silver</text></g>
+                  <g class="n n-acc"><rect x="328" y="90" width="80" height="40"/><text x="368" y="110">Gold</text></g>
+                  <g class="n"><rect x="432" y="40" width="80" height="40"/><text x="472" y="60">DataHub</text></g>
+                  <g class="n"><rect x="432" y="140" width="80" height="40"/><text x="472" y="160">AI / RAG</text></g>
+                  <text class="cap-t" x="264" y="178">Microsoft Fabric</text>
+                </svg>
+              </figure>
+              <p class="proj-body">I designed the pipelines that carry data through a bronze, silver and gold medallion model into serving layers for BI and AI, on a Microsoft Fabric capacity I set up and run. Dashboards, apps and AI features all read from the same governed gold layer, so every team works from the same numbers.</p>
+              <ul class="tags"><li>Microsoft Fabric</li><li>Azure</li><li>SQL</li><li>Python</li></ul>
+            </article>
+
+            <article class="proj" data-proj>
+              <h3 class="proj-title">Internal apps, from build to adoption</h3>
+              <p class="proj-sub">Tools teams open every day, not just tools that shipped.</p>
+              <figure class="proj-fig">
+                <svg class="dg" viewBox="0 0 528 200" role="img" aria-label="DataHub and the Design Management System both go through a rollout of documentation, demos and training, and on to the teams who use them every day.">
+                  <path class="w" pathLength="1" style="--k:0" d="M176 50C200 50 190 100 214 100"/>
+                  <path class="w" pathLength="1" style="--k:0" d="M176 150C200 150 190 100 214 100"/>
+                  <path class="w" pathLength="1" style="--k:1" d="M334 100H392"/>
+                  <g class="n"><rect x="16" y="30" width="160" height="40"/><text x="96" y="50">DataHub</text></g>
+                  <g class="n"><rect x="16" y="130" width="160" height="40"/><text x="96" y="150">Design Management</text></g>
+                  <g class="n n-acc"><rect x="214" y="80" width="120" height="40"/><text x="274" y="100">Rollout</text></g>
+                  <g class="n"><rect x="392" y="80" width="120" height="40"/><text x="452" y="100">Teams</text></g>
+                  <text class="cap-t" x="274" y="142">docs, demos, training</text>
+                  <text class="cap-t" x="452" y="142">daily use</text>
+                </svg>
+              </figure>
+              <p class="proj-body">DataHub brings the organisation's dashboards into one place through Power BI Embedded, with access managed in one spot instead of per report. The Design Management System tracks design plans and manhours on Azure SQL, with live Power BI reporting on top. Both are web apps I built on Azure, and both shipped with documentation, video demos and training so teams actually use them.</p>
+              <ul class="tags"><li>Power BI Embedded</li><li>Azure SQL</li><li>Python</li><li>Flask</li></ul>
+            </article>
+
+            <article class="proj" data-proj>
+              <h3 class="proj-title">Chat with Data</h3>
+              <p class="proj-sub">Ask in plain language. Get the answer and the chart.</p>
+              <figure class="proj-fig">
+                <svg class="dg" viewBox="0 0 528 220" role="img" aria-label="A plain-language question passes through guardrails and the semantic model to a language model, which returns an answer with a chart.">
+                  <path class="w" pathLength="1" style="--k:0" d="M84 52V92"/>
+                  <path class="w" pathLength="1" style="--k:1" d="M152 112H196"/>
+                  <path class="w" pathLength="1" style="--k:2" d="M332 112H376"/>
+                  <path class="w" pathLength="1" style="--k:3" d="M444 132V160"/>
+                  <g class="n n-q"><rect x="16" y="16" width="496" height="36" rx="18"/><text x="36" y="34" class="t-left"><tspan class="t-acc">&gt;</tspan> Which projects are over planned manhours?</text></g>
+                  <g class="n"><rect x="16" y="92" width="136" height="40"/><text x="84" y="112">Guardrails</text></g>
+                  <g class="n"><rect x="196" y="92" width="136" height="40"/><text x="264" y="112">Semantic model</text></g>
+                  <g class="n n-acc"><rect x="376" y="92" width="136" height="40"/><text x="444" y="112">LLM</text></g>
+                  <g class="n"><rect x="16" y="160" width="496" height="48"/><text x="36" y="184" class="t-left">Answer and chart</text></g>
+                  <g class="bars">
+                    <rect style="--k:0" x="352" y="186" width="14" height="14"/>
+                    <rect style="--k:1" x="374" y="176" width="14" height="24"/>
+                    <rect style="--k:2" x="396" y="182" width="14" height="18"/>
+                    <rect style="--k:3" x="418" y="170" width="14" height="30"/>
+                    <rect style="--k:4" x="440" y="178" width="14" height="22"/>
+                    <rect style="--k:5" x="462" y="173" width="14" height="27"/>
+                  </g>
+                </svg>
+              </figure>
+              <p class="proj-body">A secure, guardrailed feature inside DataHub that queries the governed semantic model, so answers match the reports people already trust. It runs on ILMU, GLM and Gemini.</p>
+              <ul class="tags"><li>LLMs</li><li>Semantic models</li><li>Guardrails</li><li>DataHub</li></ul>
+            </article>
+
+            <article class="proj" data-proj>
+              <h3 class="proj-title">AI-assisted Power BI for the analyst team</h3>
+              <p class="proj-sub">I set it up, wrote the guides and trained the team to use it.</p>
+              <figure class="proj-fig">
+                <svg class="dg" viewBox="0 0 528 200" role="img" aria-label="Setup and guides plus hands-on workshops prepare analysts to work with Power BI MCP, producing data models, reports and documentation.">
+                  <path class="w" pathLength="1" style="--k:0" d="M152 50C176 50 172 100 196 100"/>
+                  <path class="w" pathLength="1" style="--k:0" d="M152 150C176 150 172 100 196 100"/>
+                  <path class="w" pathLength="1" style="--k:1" d="M332 100C362 100 362 42 392 42"/>
+                  <path class="w" pathLength="1" style="--k:2" d="M332 100H392"/>
+                  <path class="w" pathLength="1" style="--k:3" d="M332 100C362 100 362 158 392 158"/>
+                  <g class="n"><rect x="16" y="30" width="136" height="40"/><text x="84" y="50">Setup, guides</text></g>
+                  <g class="n"><rect x="16" y="130" width="136" height="40"/><text x="84" y="150">Workshops</text></g>
+                  <g class="n n-acc"><rect x="196" y="80" width="136" height="40"/><text x="264" y="100">Analysts + MCP</text></g>
+                  <g class="n"><rect x="392" y="22" width="120" height="40"/><text x="452" y="42">Data model</text></g>
+                  <g class="n"><rect x="392" y="80" width="120" height="40"/><text x="452" y="100">Report</text></g>
+                  <g class="n"><rect x="392" y="138" width="120" height="40"/><text x="452" y="158">Docs</text></g>
+                </svg>
+              </figure>
+              <p class="proj-body">I set up a Power BI MCP workflow so our analysts and BI engineers can model data, build reports from templates and generate documentation with AI. I did the setup, wrote the guides and ran hands-on workshops, alongside the Power BI Foundations and Intermediate training I run for staff across departments.</p>
+              <ul class="tags"><li>Power BI MCP</li><li>Claude Code</li><li>Workshops</li><li>Power BI training</li></ul>
+            </article>
+
+          </div>
+          <div class="stage" aria-hidden="true"><div class="stage-card spot" data-stage></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sheet sheet-a sheet-last" id="stack" aria-labelledby="stack-title">
+      <div class="wrap">
+        <h2 id="stack-title" class="h2" data-reveal>Tools I work with</h2>
+        <div class="stack">
+          <div class="stack-group spot" data-reveal>
+            <h3>Data and BI</h3>
+            <ul><li>Power BI</li><li>DAX</li><li>Semantic modelling</li><li>Power BI Embedded</li><li>Microsoft Fabric</li><li>Snowflake</li></ul>
+          </div>
+          <div class="stack-group spot" data-reveal style="--d:1">
+            <h3>Cloud and databases</h3>
+            <ul><li>Azure SQL</li><li>Azure App Service</li><li>Microsoft Entra ID</li><li>MySQL</li><li>SQLite</li><li>BigQuery</li></ul>
+          </div>
+          <div class="stack-group spot" data-reveal style="--d:2">
+            <h3>AI and automation</h3>
+            <ul><li>LLMs: ILMU, GLM, Gemini</li><li>RAG</li><li>Power BI MCP</li><li>n8n</li><li>Power Automate</li><li>Claude Code</li></ul>
+          </div>
+          <div class="stack-group spot" data-reveal style="--d:3">
+            <h3>Build and ML</h3>
+            <ul><li>Python</li><li>Flask</li><li>JavaScript</li><li>Streamlit</li><li>scikit-learn</li><li>Dataiku</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title" class="contact-title" data-reveal>Let's talk data.</h2>
+        <p class="section-lede" data-reveal>Open to conversations about data platforms, BI and bringing AI into real work.</p>
+        <div class="contact-actions" data-reveal>
+          <div class="email">
+            <a class="btn btn-primary" href="mailto:megatmakif@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>megatmakif@gmail.com</a>
+            <button class="btn btn-icon" type="button" data-copy="megatmakif@gmail.com" aria-label="Copy email address">
+              <svg class="icon icon-copy" aria-hidden="true"><use href="#i-copy"/></svg>
+              <svg class="icon icon-check" aria-hidden="true"><use href="#i-check"/></svg>
+            </button>
+            <span class="copy-status" role="status" aria-live="polite"></span>
+          </div>
+          <a class="btn" href="https://www.linkedin.com/in/akifazri/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn<svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>&copy; 2026 Megat Mohammad Akif</p>
+    </div>
+  </footer>
+</body>
+</html>
