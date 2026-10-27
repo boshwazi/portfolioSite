@@ -200,13 +200,19 @@
   }, { rootMargin: '0px 0px -12% 0px' });
   document.querySelectorAll('[data-reveal]').forEach(function (el) { revealer.observe(el); });
 
-  /* What I do: hover, focus or tap a step to open its panel */
+  /* What I do: the steps play through on their own (the line fills toward the
+     next step while one is shown). Hovering the rail pauses it; clicking, tapping
+     or tabbing to a step hands control to the visitor for good. Autoplay only runs
+     on the wide layout, while the rail is on screen. */
   var rail = document.querySelector('[data-rail]');
   if (rail) {
     var caps = Array.prototype.slice.call(rail.querySelectorAll('.cap'));
     var track = rail.querySelector('.rail-track');
     var fill = rail.querySelector('.rail-fill');
     var active = -1;
+    var DWELL = 5000; // time on each step
+    var wideRail = window.matchMedia('(min-width: 720px)');
+    var auto = { stopped: false, paused: false, inView: false, timer: null, progress: null };
 
     function layoutTrack() {
       var dots = caps.map(function (c) { return c.querySelector('.cap-dot'); });
@@ -227,16 +233,55 @@
         cap.classList.toggle('is-done', j < i);
         cap.querySelector('.cap-btn').setAttribute('aria-expanded', String(j === i));
       });
+      fill.style.transition = '';
       fill.style.transform = 'scaleX(' + (i / (caps.length - 1)) + ')';
     }
+
+    function clearAuto() {
+      clearTimeout(auto.timer); clearTimeout(auto.progress);
+      auto.timer = auto.progress = null;
+    }
+    function halt() {
+      clearAuto();
+      fill.style.transition = '';
+      fill.style.transform = 'scaleX(' + (active / (caps.length - 1)) + ')';
+    }
+    function schedule() {
+      clearAuto();
+      if (auto.stopped || auto.paused || !auto.inView || document.hidden || !wideRail.matches) return;
+      var next = (active + 1) % caps.length;
+      if (next !== 0) {
+        // After the step settles, run the line toward the next step for the rest of the dwell
+        auto.progress = setTimeout(function () {
+          fill.style.transition = 'transform ' + (DWELL - 700) + 'ms linear';
+          fill.style.transform = 'scaleX(' + (next / (caps.length - 1)) + ')';
+        }, 700);
+      }
+      auto.timer = setTimeout(function () { setActive(next); schedule(); }, DWELL);
+    }
+    function takeOver() { auto.stopped = true; halt(); }
 
     var canHover = window.matchMedia('(hover: hover)');
     caps.forEach(function (cap, i) {
       var btn = cap.querySelector('.cap-btn');
-      btn.addEventListener('click', function () { setActive(i); });
-      btn.addEventListener('focus', function () { setActive(i); });
+      btn.addEventListener('click', function () { takeOver(); setActive(i); });
+      btn.addEventListener('focus', function () { takeOver(); setActive(i); });
       btn.addEventListener('mouseenter', function () { if (canHover.matches) setActive(i); });
     });
+    rail.addEventListener('mouseenter', function () {
+      if (!canHover.matches) return;
+      auto.paused = true; halt();
+    });
+    rail.addEventListener('mouseleave', function () {
+      if (!canHover.matches) return;
+      auto.paused = false; schedule();
+    });
+    new IntersectionObserver(function (entries) {
+      auto.inView = entries[0].isIntersecting;
+      if (auto.inView) schedule(); else halt();
+    }, { threshold: 0.5 }).observe(rail);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) halt(); else schedule(); });
+    wideRail.addEventListener('change', function () { if (wideRail.matches) schedule(); else halt(); });
 
     setActive(0);
     layoutTrack();

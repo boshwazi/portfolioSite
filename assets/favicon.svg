@@ -5,5 +5,5 @@
     @media (prefers-color-scheme: dark) { rect { fill: #eceeed; } text { fill: #15775a; } }
   </style>
   <rect width="64" height="64" rx="14"/>
-  <text x="32" y="33" text-anchor="middle" dominant-baseline="central" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="26" font-weight="700">MA</text>
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="central" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="38" font-weight="700">A</text>
 </svg>
