@@ -39,6 +39,7 @@
   --r-tag: 6px;
   --gutter: 24px;
   --nav-h: 64px;
+  --peek: 250px; /* how much of What I do shows below the hero on first load */
   color-scheme: light;
 }
 
@@ -200,9 +201,9 @@ main, .footer { position: relative; z-index: 1; }
 
 /* Hero */
 .hero {
-  min-height: calc(100dvh - var(--nav-h));
+  min-height: calc(100dvh - var(--nav-h) - var(--peek) + var(--r-sheet));
   display: grid; align-items: center;
-  padding-block: 32px calc(96px + var(--r-sheet));
+  padding-block: 24px calc(32px + var(--r-sheet));
   text-align: center;
 }
 .hero-inner { display: grid; justify-items: center; }
@@ -242,6 +243,14 @@ main, .footer { position: relative; z-index: 1; }
 
 /* Sheets: each middle section is a panel that rises over the one before */
 .section { padding-block: clamp(96px, 12vw, 152px); }
+#what { padding-top: clamp(48px, 5vw, 72px); }
+@media (max-height: 820px) and (min-width: 720px) {
+  /* Short laptop screens: tighten the hero so What I do still shows */
+  .hello { font-size: 1.5rem; }
+  .hero-title { font-size: clamp(5rem, 13vw, 9rem); }
+  .eyebrow { margin-bottom: 22px; }
+  .lede { margin-bottom: 30px; }
+}
 .sheet {
   position: relative;
   margin-top: calc(var(--r-sheet) * -1);
@@ -442,9 +451,9 @@ main, .footer { position: relative; z-index: 1; }
 }
 
 @media (max-width: 719px) {
-  :root { --gutter: 16px; --r-sheet: 24px; }
+  :root { --gutter: 16px; --r-sheet: 24px; --peek: 190px; }
   .nav-links { display: none; }
-  .hero { padding-block: 24px calc(72px + var(--r-sheet)); }
+  .hero { padding-block: 16px calc(24px + var(--r-sheet)); }
   .lede-typed { min-height: 2.6em; }
   .eyebrow { font-size: 13px; letter-spacing: 0.02em; }
 
