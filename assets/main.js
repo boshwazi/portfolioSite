@@ -176,7 +176,7 @@
       });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['top', 'what', 'work', 'stack', 'contact'].forEach(function (id) {
+  ['top', 'what', 'work', 'case', 'stack', 'contact'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) sectionObserver.observe(el);
   });
@@ -322,6 +322,145 @@
       });
     }, { threshold: 0.4 });
     projects.forEach(function (p) { figObserver.observe(p.querySelector('.proj-fig')); });
+  }
+
+  /* Case study: a closed summary that opens in place. Once open, a sticky bar
+     follows the chapter in view, each chapter's loop plays while it is on screen
+     (in the page's theme), and the before/after slider gives one hint sweep. */
+  var caseSection = document.getElementById('case');
+  if (caseSection) {
+    var caseBody = caseSection.querySelector('.case-body');
+    var caseToggle = caseSection.querySelector('[data-case-toggle]');
+    var chapters = Array.prototype.slice.call(caseBody.querySelectorAll('[data-chapter]'));
+    var barSteps = Array.prototype.slice.call(caseBody.querySelectorAll('.case-bar-steps button'));
+    var barTitle = caseBody.querySelector('[data-case-current]');
+    var caseReady = false;
+    var smooth = function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'; };
+
+    caseBody.hidden = true;
+
+    var setChapter = function (i) {
+      barTitle.textContent = chapters[i].getAttribute('data-chapter');
+      barSteps.forEach(function (b, j) {
+        b.classList.toggle('is-current', j === i);
+        b.classList.toggle('is-done', j < i);
+      });
+    };
+
+    // Chapter loops: a dark and a light render of each, loaded only once the
+    // case study is open and swapped when the theme changes
+    var media = Array.prototype.slice.call(caseBody.querySelectorAll('[data-video]'));
+    var videoSrc = function (fig, ext) { return 'assets/case/' + fig.getAttribute('data-video') + '-' + currentTheme() + ext; };
+    var loadVideo = function (fig) {
+      var v = fig.querySelector('video');
+      var src = videoSrc(fig, '.mp4');
+      if (v.getAttribute('src') === src) return;
+      var t = v.currentTime || 0;
+      v.poster = videoSrc(fig, '.jpg');
+      v.src = src;
+      if (t) v.addEventListener('loadedmetadata', function () { v.currentTime = t; }, { once: true });
+    };
+    var playVideo = function (fig) {
+      if (fig.classList.contains('is-paused') || !fig.classList.contains('in-view')) return;
+      var p = fig.querySelector('video').play();
+      if (p && p.catch) p.catch(function () {});
+    };
+    media.forEach(function (fig) {
+      var v = fig.querySelector('video');
+      var btn = fig.querySelector('[data-video-toggle]');
+      btn.addEventListener('click', function () {
+        var paused = fig.classList.toggle('is-paused');
+        btn.textContent = paused ? 'Play' : 'Pause';
+        btn.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
+        if (paused) v.pause(); else playVideo(fig);
+      });
+    });
+    var mediaObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var fig = entry.target;
+        fig.classList.toggle('in-view', entry.isIntersecting);
+        if (entry.isIntersecting) { loadVideo(fig); playVideo(fig); }
+        else fig.querySelector('video').pause();
+      });
+    }, { threshold: 0.25 });
+    var refreshTheme = function () {
+      media.forEach(function (fig) {
+        if (!fig.querySelector('video').getAttribute('src')) return;
+        loadVideo(fig);
+        playVideo(fig);
+      });
+    };
+    new MutationObserver(refreshTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    systemDark.addEventListener('change', refreshTheme);
+
+    var compare = caseBody.querySelector('[data-compare]');
+    var range = compare.querySelector('.compare-range');
+    var hinted = false;
+    range.addEventListener('input', function () {
+      compare.classList.remove('is-hinting');
+      compare.style.setProperty('--pos', range.value + '%');
+    });
+    var hintCompare = function () {
+      if (hinted) return;
+      hinted = true;
+      compare.classList.add('is-hinting');
+      compare.style.setProperty('--pos', '22%');
+      setTimeout(function () { compare.style.setProperty('--pos', '50%'); }, 1000);
+      setTimeout(function () { compare.classList.remove('is-hinting'); }, 2000);
+    };
+
+    var setupCase = function () {
+      if (caseReady) return;
+      caseReady = true;
+      var chapterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setChapter(chapters.indexOf(entry.target));
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      chapters.forEach(function (c) { chapterObserver.observe(c); });
+
+      var drawObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          drawObserver.unobserve(el);
+          if (el === compare) hintCompare();
+          else el.classList.add('on');
+        });
+      }, { threshold: 0.35 });
+      caseBody.querySelectorAll('[data-draw]').forEach(function (f) { drawObserver.observe(f); });
+      drawObserver.observe(compare);
+      media.forEach(function (fig) { mediaObserver.observe(fig); });
+      setChapter(0);
+    };
+
+    var openCase = function (targetId) {
+      if (caseBody.hidden) {
+        caseBody.hidden = false;
+        caseToggle.setAttribute('aria-expanded', 'true');
+        setupCase();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { caseSection.classList.add('is-open'); });
+        });
+      }
+      var target = targetId ? document.getElementById(targetId) : caseBody;
+      requestAnimationFrame(function () { target.scrollIntoView({ behavior: smooth(), block: 'start' }); });
+    };
+    var closeCase = function () {
+      caseSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+      caseSection.classList.remove('is-open');
+      caseToggle.setAttribute('aria-expanded', 'false');
+      caseBody.hidden = true;
+      caseToggle.focus({ preventScroll: true });
+    };
+
+    caseToggle.addEventListener('click', function () {
+      if (caseBody.hidden) openCase(null); else closeCase();
+    });
+    caseSection.querySelectorAll('[data-case-close]').forEach(function (b) { b.addEventListener('click', closeCase); });
+    caseSection.querySelectorAll('[data-case-jump]').forEach(function (b) {
+      b.addEventListener('click', function () { openCase(b.getAttribute('data-case-jump')); });
+    });
   }
 
   /* Copy email with a short confirmation */

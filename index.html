@@ -35,6 +35,7 @@
     <symbol id="i-copy" viewBox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></symbol>
     <symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
     <symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
     <symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
@@ -50,6 +51,7 @@
         <ul class="nav-links">
           <li><a href="#what">What I do</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="#case">Case study</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -254,7 +256,7 @@
       </div>
     </section>
 
-    <section class="section sheet sheet-a sheet-last" id="stack" aria-labelledby="stack-title">
+    <section class="section sheet sheet-a" id="stack" aria-labelledby="stack-title">
       <div class="wrap">
         <h2 id="stack-title" class="h2" data-reveal>Tools I work with</h2>
         <div class="stack">
@@ -274,6 +276,289 @@
             <h3>Build and ML</h3>
             <ul><li>Python</li><li>Flask</li><li>JavaScript</li><li>Streamlit</li><li>scikit-learn</li><li>Dataiku</li></ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sheet sheet-b sheet-last case" id="case" aria-labelledby="case-title">
+      <div class="wrap">
+        <div class="case-head">
+          <p class="case-label" data-reveal>End-to-end AI and data pipeline</p>
+          <h2 id="case-title" class="h2" data-reveal>Less typing, more thinking</h2>
+          <p class="section-lede" data-reveal>How AI cut fleet invoice admin from two weeks to under an hour.</p>
+          <div class="case-stat" data-reveal>
+            <div class="case-stat-item"><span class="case-stat-n case-stat-before">~2 weeks</span><span class="case-stat-l">before</span></div>
+            <svg class="icon case-stat-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            <div class="case-stat-item"><span class="case-stat-n">under 1 hour</span><span class="case-stat-l">now</span></div>
+          </div>
+          <p class="case-meta" data-reveal>About 25 fleet invoices a month</p>
+          <ul class="case-chips" data-reveal aria-label="Chapters">
+            <li><button type="button" data-case-jump="case-manual">The manual way</button></li>
+            <li><button type="button" data-case-jump="case-capture">Capture</button></li>
+            <li><button type="button" data-case-jump="case-engineer">Engineer</button></li>
+            <li><button type="button" data-case-jump="case-model">Model and design</button></li>
+            <li><button type="button" data-case-jump="case-share">Secure and share</button></li>
+            <li><button type="button" data-case-jump="case-ask">Ask ILMU</button></li>
+            <li><button type="button" data-case-jump="case-adopt">Adoption</button></li>
+            <li><button type="button" data-case-jump="case-outcome">The outcome</button></li>
+          </ul>
+          <button class="btn btn-primary case-toggle" type="button" data-case-toggle aria-expanded="false" aria-controls="case-body" data-reveal>
+            <span class="case-toggle-open">Read the case study</span><span class="case-toggle-close">Close the case study</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+          </button>
+        </div>
+
+        <div class="case-body" id="case-body">
+          <div class="case-bar" aria-label="Case study progress">
+            <span class="case-bar-title" data-case-current>The manual way</span>
+            <ol class="case-bar-steps">
+              <li><button type="button" data-case-jump="case-manual" aria-label="The manual way"></button></li>
+              <li><button type="button" data-case-jump="case-capture" aria-label="Capture"></button></li>
+              <li><button type="button" data-case-jump="case-engineer" aria-label="Engineer"></button></li>
+              <li><button type="button" data-case-jump="case-model" aria-label="Model and design"></button></li>
+              <li><button type="button" data-case-jump="case-share" aria-label="Secure and share"></button></li>
+              <li><button type="button" data-case-jump="case-ask" aria-label="Ask ILMU"></button></li>
+              <li><button type="button" data-case-jump="case-adopt" aria-label="Adoption"></button></li>
+              <li><button type="button" data-case-jump="case-outcome" aria-label="The outcome"></button></li>
+            </ol>
+            <button class="case-bar-close" type="button" data-case-close>Close</button>
+          </div>
+
+          <div class="case-snapshot">
+            <div>
+              <h3>My role</h3>
+              <p>I set up the whole thing: the systems, the processes and the work across my team. I delegated the roles, built the platform and led the rollout.</p>
+            </div>
+            <div>
+              <h3>Stack</h3>
+              <ul class="tags"><li>ILMU models</li><li>n8n</li><li>Python</li><li>Flask</li><li>Azure SQL</li><li>Azure App Service</li><li>SharePoint</li><li>Microsoft Fabric</li><li>Power BI</li><li>DAX</li><li>Power BI MCP</li><li>Claude Code</li><li>Power BI Embedded</li><li>Entra ID</li></ul>
+            </div>
+            <p class="case-note">All figures and data shown here are made up. The real system and data stay internal.</p>
+          </div>
+
+          <article class="chapter" id="case-manual" data-chapter="The manual way">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">The manual way</p>
+                <h3 class="chapter-title">Two weeks of typing, every month</h3>
+                <p>Every month the admins received about 25 workshop invoices for the company fleet, some running to many pages. Each one was typed in by hand: the invoice details, the vehicle, and every part and labour line. It took about two weeks, mistakes were hard to catch, and the data could not answer simple questions like which vehicles cost the most.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Mapped the existing process with the admins</li>
+                  <li>Defined what done means: every invoice captured, checked and traceable</li>
+                  <li>Scoped the solution end to end, from capture to dashboard</li>
+                </ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="manual">
+              <video muted loop playsinline preload="none" aria-label="The admins type each invoice into a spreadsheet by hand while ten working days fill up."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+          </article>
+
+          <article class="chapter" id="case-capture" data-chapter="Capture">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">Capture</p>
+                <h3 class="chapter-title">AI reads it, a person confirms it</h3>
+                <p>I built an internal web app where admins upload invoice PDFs. Each page is archived first, then sent through an n8n workflow to ILMU models, which read the page and return the invoice header, the vehicle and every line item as structured rows. The app checks the result, flags anything that looks wrong, and a person confirms each invoice in a quick review queue.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Designed the upload, archive, read, check and review flow</li>
+                  <li>Wrote rules for what OCR misses, like invoice numbers that run across pages and totals that do not match the lines</li>
+                  <li>Logged every correction, so each number traces back to its page</li>
+                </ul>
+                <ul class="tags"><li>ILMU models</li><li>n8n</li><li>Python</li><li>Flask</li><li>Azure SQL</li><li>Azure App Service</li><li>SharePoint</li></ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="capture">
+              <video muted loop playsinline preload="none" aria-label="ILMU models read an invoice page, the fields land in a review screen, a misread vehicle number is fixed by a person, and the record is saved to Azure SQL."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+          </article>
+
+          <article class="chapter" id="case-engineer" data-chapter="Engineer">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">Engineer</p>
+                <h3 class="chapter-title">Clean data, in layers</h3>
+                <p>Confirmed invoices flow into Microsoft Fabric through a medallion model. Bronze keeps the raw extract, silver cleans and standardises it, and gold shapes it into tidy tables for reporting and AI. Data-health checks run along the way, so the team can see how complete and verified the data is.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Designed the bronze, silver and gold layers</li>
+                  <li>Mapped free-text line items to service types like tyres, brakes and battery</li>
+                  <li>Added health measures: verified, complete, and line items that add up to the printed total</li>
+                </ul>
+                <ul class="tags"><li>Microsoft Fabric</li><li>SQL</li><li>Python</li><li>Data modelling</li></ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="engineer">
+              <video muted loop playsinline preload="none" aria-label="A raw extract moves from bronze to a cleaned silver record to a gold star schema, while data-health scores count up."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+          </article>
+
+          <article class="chapter" id="case-model" data-chapter="Model and design">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">Model and design</p>
+                <h3 class="chapter-title">Built with AI, checked by a person</h3>
+                <p>I used Claude Code with the Power BI MCP to build the semantic model and the report. The AI wrote and organised the measures, built the pages from a design template and documented the model, and every number passed a validation check before release. Six pages cover spend, vehicles, workshops, parts and labour, data health and the OCR pipeline.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Defined the KPIs first, each with the question it answers</li>
+                  <li>Directed the AI build and reviewed every measure</li>
+                  <li>Redesigned the report around one question per page</li>
+                </ul>
+                <p class="chapter-proof"><strong>50+</strong> measures <span aria-hidden="true">/</span> <strong>6</strong> pages <span aria-hidden="true">/</span> validated</p>
+                <ul class="tags"><li>Power BI</li><li>DAX</li><li>Semantic modelling</li><li>Power BI MCP</li><li>Claude Code</li></ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="model">
+              <video muted loop playsinline preload="none" aria-label="Claude Code calls the Power BI MCP to build measures and a report page, which assembles itself and is validated."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+            <figure class="chapter-fig compare" data-compare style="--pos:50%">
+              <div class="compare-stage">
+                <svg class="dg compare-layer compare-before" viewBox="0 0 528 300" role="img" aria-label="Before: a crowded report with many colours, two donut charts and a dense table.">
+                  <rect class="mock-bg" x="0" y="0" width="528" height="300"/>
+                  <rect class="mock-ink" x="16" y="14" width="140" height="10"/><rect class="mock-ink-soft" x="16" y="30" width="200" height="6"/>
+                  <rect x="16" y="48" width="92" height="44" rx="4" fill="#2a78d6" opacity=".18"/><rect x="116" y="48" width="92" height="44" rx="4" fill="#eb6834" opacity=".18"/><rect x="216" y="48" width="92" height="44" rx="4" fill="#1baf7a" opacity=".18"/><rect x="316" y="48" width="92" height="44" rx="4" fill="#2a78d6" opacity=".18"/><rect x="416" y="48" width="96" height="44" rx="4" fill="#eb6834" opacity=".18"/>
+                  <circle cx="70" cy="150" r="34" fill="none" stroke="#2a78d6" stroke-width="16" stroke-dasharray="70 144"/><circle cx="70" cy="150" r="34" fill="none" stroke="#eb6834" stroke-width="16" stroke-dasharray="50 164" stroke-dashoffset="-70"/><circle cx="70" cy="150" r="34" fill="none" stroke="#1baf7a" stroke-width="16" stroke-dasharray="94 120" stroke-dashoffset="-120"/>
+                  <circle cx="190" cy="150" r="34" fill="none" stroke="#e87ba4" stroke-width="16" stroke-dasharray="90 124"/><circle cx="190" cy="150" r="34" fill="none" stroke="#eda100" stroke-width="16" stroke-dasharray="60 154" stroke-dashoffset="-90"/><circle cx="190" cy="150" r="34" fill="none" stroke="#4a3aa7" stroke-width="16" stroke-dasharray="64 150" stroke-dashoffset="-150"/>
+                  <rect x="260" y="118" width="18" height="70" fill="#2a78d6"/><rect x="282" y="140" width="18" height="48" fill="#eb6834"/><rect x="310" y="104" width="18" height="84" fill="#2a78d6"/><rect x="332" y="150" width="18" height="38" fill="#eb6834"/><rect x="360" y="128" width="18" height="60" fill="#2a78d6"/><rect x="382" y="160" width="18" height="28" fill="#eb6834"/><rect x="410" y="112" width="18" height="76" fill="#2a78d6"/><rect x="432" y="146" width="18" height="42" fill="#eb6834"/><rect x="460" y="134" width="18" height="54" fill="#1baf7a"/><rect x="482" y="154" width="18" height="34" fill="#e34948"/>
+                  <g class="mock-rows"><rect x="16" y="208" width="496" height="8"/><rect x="16" y="222" width="496" height="8"/><rect x="16" y="236" width="496" height="8"/><rect x="16" y="250" width="496" height="8"/><rect x="16" y="264" width="496" height="8"/><rect x="16" y="278" width="496" height="8"/></g>
+                </svg>
+                <svg class="dg compare-layer compare-after" viewBox="0 0 528 300" role="img" aria-label="After: a clean report with page navigation, one headline number, a trend line, a vehicle leaderboard and a data trust panel.">
+                  <rect class="mock-bg" x="0" y="0" width="528" height="300"/>
+                  <rect class="mock-nav" x="0" y="0" width="112" height="300"/>
+                  <rect class="mock-nav-on" x="10" y="44" width="92" height="18" rx="4"/>
+                  <g class="mock-nav-lines"><rect x="18" y="20" width="60" height="6"/><rect x="18" y="72" width="54" height="5"/><rect x="18" y="90" width="62" height="5"/><rect x="18" y="108" width="48" height="5"/><rect x="18" y="126" width="58" height="5"/><rect x="18" y="144" width="66" height="5"/></g>
+                  <text class="mock-h" x="128" y="26">Overview</text>
+                  <text class="mock-s" x="128" y="42">Are we spending more or less, and on what?</text>
+                  <rect class="mock-card" x="128" y="54" width="232" height="128" rx="8"/>
+                  <text class="mock-s" x="140" y="72">Fleet maintenance spend</text>
+                  <text class="mock-big" x="140" y="98">RM 84,210</text>
+                  <path class="mock-area" d="M140 168 L172 150 L204 156 L236 128 L268 134 L300 112 L332 120 L348 104 L348 172 L140 172 Z"/>
+                  <path class="mock-line" d="M140 168 L172 150 L204 156 L236 128 L268 134 L300 112 L332 120 L348 104"/>
+                  <rect class="mock-card" x="368" y="54" width="144" height="60" rx="8"/><text class="mock-s" x="380" y="72">Avg cost per visit</text><text class="mock-mid" x="380" y="96">RM 1,086</text>
+                  <rect class="mock-card" x="368" y="122" width="144" height="60" rx="8"/><text class="mock-s" x="380" y="140">Repeat repairs, 90 days</text><text class="mock-mid" x="380" y="164">6</text>
+                  <rect class="mock-card" x="128" y="190" width="232" height="98" rx="8"/><text class="mock-s" x="140" y="208">Vehicle leaderboard</text>
+                  <g class="mock-bars"><rect x="140" y="218" width="150" height="9" rx="2"/><rect x="140" y="234" width="128" height="9" rx="2"/><rect x="140" y="250" width="112" height="9" rx="2"/><rect x="140" y="266" width="96" height="9" rx="2"/></g>
+                  <rect class="mock-card" x="368" y="190" width="144" height="98" rx="8"/><text class="mock-s" x="380" y="208">Data trust</text>
+                  <rect class="mock-track" x="380" y="222" width="120" height="6" rx="3"/><rect class="mock-fill" x="380" y="222" width="112" height="6" rx="3"/>
+                  <rect class="mock-track" x="380" y="246" width="120" height="6" rx="3"/><rect class="mock-fill" x="380" y="246" width="96" height="6" rx="3"/>
+                  <rect class="mock-track" x="380" y="270" width="120" height="6" rx="3"/><rect class="mock-fill" x="380" y="270" width="104" height="6" rx="3"/>
+                </svg>
+                <span class="compare-tag compare-tag-before" aria-hidden="true">Before</span>
+                <span class="compare-tag compare-tag-after" aria-hidden="true">After</span>
+                <span class="compare-handle" aria-hidden="true"></span>
+                <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the report before and after the redesign">
+              </div>
+              <figcaption>Drag to compare. Rebuilt with made-up data.</figcaption>
+            </figure>
+          </article>
+
+          <article class="chapter" id="case-share" data-chapter="Secure and share">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">Secure and share</p>
+                <h3 class="chapter-title">Everyone who needs it, without a licence each</h3>
+                <p>The report is published to Power BI Service and embedded in DataHub, the internal portal I built. Staff sign in with their company account and see only the dashboards they have been given, and row-level security narrows each person to the data they are allowed to see. Because DataHub uses Power BI's App Owns Data model, viewers do not need a Power BI licence.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Set up RLS roles and the access rules behind them</li>
+                  <li>Embedded the report in DataHub, where admins and dashboard owners add or remove viewers</li>
+                  <li>Tracked usage and refresh health from one admin view</li>
+                </ul>
+                <ul class="tags"><li>Power BI Service</li><li>Power BI Embedded</li><li>RLS</li><li>Entra ID</li><li>Python</li><li>JavaScript</li></ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="share">
+              <video muted loop playsinline preload="none" aria-label="Two viewers are added in DataHub, each limited to their own workshop, and each sees different rows on the same dashboard without a Power BI licence."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+          </article>
+
+          <article class="chapter" id="case-ask" data-chapter="Ask ILMU">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">Ask ILMU</p>
+                <h3 class="chapter-title">Ask the data a question</h3>
+                <p>I built a bridge between our data models and ILMU, so anyone viewing the dashboard can ask questions in plain language, right inside DataHub. ILMU answers from the same governed model as the report, can compare months and years, and replies with a table or a chart. Because it runs on ILMU, the data stays with us.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Built the connection between the semantic model and ILMU</li>
+                  <li>Added guardrails so answers come only from approved data</li>
+                  <li>Placed it beside the dashboard, where people already work</li>
+                </ul>
+                <ul class="tags"><li>LLMs (ILMU)</li><li>Semantic models</li><li>Guardrails</li><li>Python</li></ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="ask">
+              <video muted loop playsinline preload="none" aria-label="A question is typed into Ask ILMU, the answer comes back as a table, and the same vehicles light up on the dashboard."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+          </article>
+
+          <article class="chapter" id="case-adopt" data-chapter="Adoption">
+            <div class="chapter-text">
+              <div class="chapter-intro">
+                <p class="chapter-label">Adoption</p>
+                <h3 class="chapter-title">Built with the team, not just for them</h3>
+                <p>A tool only saves time if people use it. I ran working sessions with the fleet admins from the first walk-through of the process to sign-off, and produced an AI-made onboarding video that sits next to the dashboard in DataHub. Their feedback shaped the review screens and the dashboard pages.</p>
+              </div>
+              <div class="chapter-detail">
+                <ul class="did">
+                  <li>Ran working sessions at each stage, from walk-through to sign-off</li>
+                  <li>Made the onboarding video and guides, hosted in DataHub</li>
+                  <li>Delegated build and rollout roles across my team and kept everyone on one plan</li>
+                </ul>
+                <ul class="tags"><li>Stakeholder management</li><li>Training</li><li>Product ownership</li><li>Team leadership</li></ul>
+              </div>
+            </div>
+            <figure class="chapter-media" data-video="adopt">
+              <video muted loop playsinline preload="none" aria-label="The onboarding video walks through three steps of the dashboard while working sessions tick off from walk-through to sign-off."></video>
+              <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
+            </figure>
+          </article>
+
+          <section class="case-outcome" id="case-outcome" data-chapter="The outcome" aria-labelledby="case-outcome-title">
+            <p class="chapter-label">The outcome</p>
+            <h3 class="chapter-title" id="case-outcome-title">Two weeks became under an hour</h3>
+            <div class="outcome-grid">
+              <div class="outcome spot"><p class="outcome-n">~2 weeks <span aria-hidden="true">&rarr;</span> &lt;1 hour</p><p>for a month of invoices, about 25 of them</p></div>
+              <div class="outcome spot"><p class="outcome-n">Every invoice</p><p>checked by a person and traceable to the page it came from</p></div>
+              <div class="outcome spot"><p class="outcome-n">Seconds</p><p>to answer a question through Ask ILMU, instead of asking for a new report</p></div>
+              <div class="outcome spot"><p class="outcome-n">No new licences</p><p>for the people viewing the dashboard</p></div>
+            </div>
+            <ul class="did did-wide">
+              <li>New insight the team never had: spend by vehicle and workshop, parts versus labour, repeat repairs and cost per visit</li>
+              <li>Reusable: the same app already handles a second document type</li>
+            </ul>
+
+            <div class="services">
+              <h3 class="services-title">What I can do for you</h3>
+              <ul class="services-grid">
+                <li><button type="button" data-case-jump="case-capture"><strong>Automate manual data work with AI</strong><span>Capture</span></button></li>
+                <li><button type="button" data-case-jump="case-engineer"><strong>Build the data platform</strong><span>Engineer</span></button></li>
+                <li><button type="button" data-case-jump="case-model"><strong>Model and design dashboards, faster with AI</strong><span>Model and design</span></button></li>
+                <li><button type="button" data-case-jump="case-share"><strong>Secure and share at scale, without per-user licences</strong><span>Secure and share</span></button></li>
+                <li><button type="button" data-case-jump="case-ask"><strong>Put an AI assistant on your data</strong><span>Ask ILMU</span></button></li>
+                <li><button type="button" data-case-jump="case-adopt"><strong>Get it adopted: sessions, training, onboarding</strong><span>Adoption</span></button></li>
+              </ul>
+              <div class="case-end">
+                <a class="btn btn-primary" href="#contact">Contact</a>
+                <button class="btn" type="button" data-case-close>Close the case study</button>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>
