@@ -43,26 +43,6 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #090b0b;
-    --sheet-a: #111414;
-    --sheet-b: #0d1010;
-    --card: rgb(236 238 237 / 0.025);
-    --fg: #eceeed;
-    --fg-2: #a4abaa;
-    --fg-3: #858d8c;
-    --line: rgb(236 238 237 / 0.08);
-    --line-strong: rgb(236 238 237 / 0.2);
-    --accent: #5fd3a3;
-    --accent-soft: rgb(95 211 163 / 0.12);
-    --dot: #eceeed;
-    --dot-a: 0.24;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px rgb(0 0 0 / 0.3);
-    --sheet-shadow: 0 -24px 60px rgb(0 0 0 / 0.5);
-    color-scheme: dark;
-  }
-}
 :root[data-theme="dark"] {
   --bg: #090b0b;
   --sheet-a: #111414;
@@ -172,10 +152,6 @@ main, .footer { position: relative; z-index: 1; }
 .theme-toggle .icon-moon { opacity: 0; transform: rotate(-60deg) scale(0.6); }
 :root[data-theme="dark"] .theme-toggle .icon-sun { opacity: 0; transform: rotate(60deg) scale(0.6); }
 :root[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; transform: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .icon-sun { opacity: 0; transform: rotate(60deg) scale(0.6); }
-  :root:not([data-theme="light"]) .theme-toggle .icon-moon { opacity: 1; transform: none; }
-}
 .theme-toggle:active { transform: scale(0.94); }
 
 /* Buttons */

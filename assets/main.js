@@ -3,11 +3,11 @@
 
   var root = document.documentElement;
 
-  /* Theme toggle: system preference by default, the visitor's choice once set */
+  /* Theme toggle: light by default, the visitor's choice once set */
   var toggle = document.querySelector('[data-theme-toggle]');
   var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
   function currentTheme() {
-    return root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');
+    return root.getAttribute('data-theme') || 'light';
   }
   function syncToggleLabel() {
     toggle.setAttribute('aria-label', currentTheme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
