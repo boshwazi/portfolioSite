@@ -90,6 +90,7 @@ button { font: inherit; color: inherit; }
 .wrap { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: var(--gutter); }
 .icon { width: 18px; height: 18px; fill: currentColor; flex: none; }
 .icon-sm { width: 14px; height: 14px; }
+[hidden] { display: none !important; }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
@@ -395,6 +396,24 @@ main, .footer { position: relative; z-index: 1; }
 .footer { padding-block: 0 40px; text-align: center; }
 .footer p { font-size: 13px; color: var(--fg-3); }
 
+/* Phone-only pieces: hidden on wider screens */
+.rail-steps, .cap-inner .short, .cap-next, .sum, .more-toggle, .media-expand { display: none; }
+
+@keyframes fade-in { from { opacity: 0; } }
+
+/* Full-screen loop viewer: sideways on a portrait phone so the loop fills the screen */
+.viewer { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: #050606; animation: fade-in 0.25s ease both; }
+.viewer-stage { position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%); }
+.viewer-stage video { display: block; width: 100%; height: 100%; object-fit: contain; }
+@media (orientation: portrait) {
+  .viewer-stage { width: 100dvh; height: 100dvw; transform: translate(-50%, -50%) rotate(90deg); }
+}
+.viewer-close {
+  position: fixed; top: max(12px, env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+  color: #f1f3f3; background: rgb(255 255 255 / 0.14); border: 1px solid rgb(255 255 255 / 0.2);
+}
+
 /* Case study: a closed summary that opens into chapters in place */
 .case-head { display: grid; justify-items: center; text-align: center; }
 .case-label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 16px; }
@@ -430,7 +449,29 @@ main, .footer { position: relative; z-index: 1; }
   backdrop-filter: saturate(160%) blur(14px);
   border: 1px solid var(--line); box-shadow: var(--shadow);
 }
-.case-bar-title { flex: 1; min-width: 0; font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.case-bar-title {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; min-height: 40px;
+  padding: 0; border: 0; background: none; text-align: left; cursor: pointer;
+  font-size: 14px; font-weight: 500; white-space: nowrap;
+}
+.case-bar-count { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--fg-3); }
+.case-bar-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.case-bar-title .icon { color: var(--fg-3); transition: transform 0.3s var(--ease-out); }
+.case-bar-title[aria-expanded="true"] .icon { transform: rotate(180deg); }
+.case-menu {
+  position: absolute; left: 0; top: calc(100% + 8px); min-width: 280px; z-index: 6;
+  margin: 0; padding: 6px; list-style: none; border-radius: 18px;
+  background: var(--sheet-a); border: 1px solid var(--line); box-shadow: var(--shadow);
+  animation: fade-in 0.2s ease both;
+}
+.case-menu button {
+  display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 46px;
+  padding: 0 14px; border: 0; border-radius: 12px; background: none; text-align: left; cursor: pointer;
+  font-size: 15px; color: var(--fg-2);
+}
+.case-menu button.is-done { color: var(--fg); }
+.case-menu button.is-done::after { content: "Done"; font-family: var(--mono); font-size: 11px; color: var(--accent); }
+.case-menu button.is-current { color: var(--fg); background: var(--accent-soft); font-weight: 500; }
 .case-bar-steps { display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .case-bar-steps button {
   display: block; width: 26px; height: 6px; padding: 10px 0; box-sizing: content-box;
@@ -484,6 +525,7 @@ main, .footer { position: relative; z-index: 1; }
 .chapter-text { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px 56px; align-items: start; }
 .chapter-detail .did { margin-top: 0; }
 .chapter-intro > p:not(.chapter-label) { color: var(--fg-2); max-width: 62ch; }
+.chapter-intro .more-body p { color: var(--fg-2); max-width: 62ch; }
 .chapter-detail { padding-top: 34px; }
 
 /* Chapter loops: full width under the text, dark or light to match the page */
@@ -658,44 +700,113 @@ main, .footer { position: relative; z-index: 1; }
   .lede-typed { min-height: 2.6em; }
   .eyebrow { font-size: 13px; letter-spacing: 0.02em; }
 
-  /* Rail becomes a vertical list; each panel opens under its step */
-  .rail { display: block; margin-top: 44px; }
-  .rail-track { display: none; }
-  .cap { display: block; position: relative; padding-left: 32px; }
-  .cap::before {
-    content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 1px;
-    background: var(--line-strong);
-  }
-  .rail-track + .cap::before { top: 25px; }
-  .cap:last-child::before { bottom: auto; height: 25px; }
-  .cap-btn { position: static; flex-direction: row; align-items: center; gap: 12px; padding: 12px 0; width: 100%; text-align: left; }
-  .cap-dot { position: absolute; left: 0; top: 19px; z-index: 1; }
-  .cap-panel {
-    border: 0; padding: 0; background: none;
-    display: grid; grid-template-rows: 0fr;
-    transform: none;
-    transition: grid-template-rows 0.4s var(--ease-out), opacity 0.25s ease, visibility 0s linear 0.4s;
-  }
-  .cap.is-active .cap-panel {
-    grid-template-rows: 1fr; transform: none;
-    transition: grid-template-rows 0.45s var(--ease-out), opacity 0.35s ease 0.08s, visibility 0s;
-  }
-  .cap-inner { overflow: hidden; display: block; min-height: 0; text-align: left; }
-  .cap-inner h3 { font-size: 19px; margin: 4px 0 8px; }
-  .cap-inner .tags { justify-content: flex-start; margin: 16px 0 12px; }
+  /* Header: finger-sized home link and theme toggle */
+  .nav-inner { gap: 8px; }
+  .brand { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; font-size: 17px; }
+  .theme-toggle { width: 44px; height: 44px; }
 
-  .stack { grid-template-columns: minmax(0, 1fr); }
+  /* Less scrolling between sections */
+  .section { padding-block: 64px; }
+  #what { padding-top: 40px; }
+  .contact { padding-block: 88px 72px; }
+  .lede { margin-bottom: 32px; }
+
+  /* What I do: one swipeable card per step, with a segmented progress bar */
+  .rail-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 24px; }
+  .rail-steps button {
+    display: block; height: 4px; padding: 14px 0; box-sizing: content-box; cursor: pointer;
+    border: 0; border-radius: 2px; background: var(--line-strong); background-clip: content-box;
+    transition: background-color 0.3s ease;
+  }
+  .rail-steps button.is-done { background-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .rail-steps button.is-current { background-color: var(--accent); }
+  .rail {
+    display: flex; gap: 12px; margin: 4px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter) 4px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain; scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail-track { display: none; }
+  .cap {
+    display: flex; flex-direction: column; flex: 0 0 100%; scroll-snap-align: start;
+    padding: 20px; border-radius: var(--r-card); background: var(--card); border: 1px solid var(--line);
+  }
+  .cap-btn { padding: 0; pointer-events: none; text-align: left; align-items: flex-start; }
+  .cap-dot { display: none; }
+  .cap-name, .cap.is-active .cap-name { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--accent); }
+  .cap-panel, .cap.is-active .cap-panel {
+    flex: 1; display: block; padding: 0; border: 0; background: none;
+    opacity: 1; visibility: visible; transform: none; transition: none;
+  }
+  .cap-inner { display: flex; flex-direction: column; height: 100%; gap: 0; text-align: left; justify-items: start; }
+  .cap-inner h3 { font-size: 22px; margin: 6px 0 10px; }
+  .cap-inner .short { display: block; font-size: 17px; line-height: 1.65; color: var(--fg); }
+  .cap-inner .full { display: none; }
+  .cap-inner .tags { justify-content: flex-start; margin: 16px 0 20px; }
+  .cap-next {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: auto;
+    min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer;
+    font-size: 15px; font-weight: 500; color: var(--fg);
+    background: transparent; border: 1px solid var(--line-strong);
+  }
+
+  /* Short version first: summary, picture, points, then the full text on request */
+  .chapter { display: flex; flex-direction: column; }
+  .chapter-text, .chapter-intro { display: contents; }
+  .chapter .chapter-label { order: 1; }
+  .chapter-title { order: 2; margin-bottom: 10px; }
+  .sum { display: block; order: 3; font-size: 17px; line-height: 1.6; color: var(--fg); }
+  .chapter-media { order: 4; margin-top: 20px; }
+  .chapter-media + .compare { order: 5; }
+  .chapter-detail { order: 6; margin-top: 22px; }
+  .chapter > .more-toggle, .chapter-text .more-toggle { order: 7; }
+  .chapter .more-body { order: 8; }
+  .more-toggle {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; min-height: 44px; margin-top: 8px;
+    padding: 0; border: 0; background: none; cursor: pointer;
+    font-size: 15px; font-weight: 500; color: var(--accent);
+  }
+  .more-toggle::after { content: "+"; font-family: var(--mono); font-size: 18px; line-height: 1; }
+  .more-toggle[aria-expanded="true"]::after { content: "\2212"; }
+  .more-body { display: none; color: var(--fg-2); }
+  .is-more .more-body { display: block; }
+  .proj .more-toggle { margin-top: 4px; }
+  .proj-body { margin-top: 4px; }
+  .proj .tags { margin-top: 16px; }
+
+  /* Tools: compact two-column tag groups */
+  .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 28px; }
+  .stack-group { padding: 14px; }
+  .stack-group h3 { font-size: 12px; margin-bottom: 10px; }
+  .stack-group ul { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stack-group li {
+    padding: 5px 8px; border-radius: var(--r-tag); border: 1px solid var(--line);
+    font-family: var(--mono); font-size: 12px; line-height: 1.3; color: var(--fg-2);
+  }
   .case-stat { gap: 12px; }
   .case-stat-arrow { width: 22px; height: 22px; }
   .case-chips { margin-top: 24px; }
+  .case-chips button { min-height: 44px; padding: 0 14px; }
   .case-body { margin-top: 48px; }
-  .js .case-bar { gap: 10px; padding-left: 16px; margin-bottom: 28px; }
-  .case-bar-steps { display: none; }
+  .js .case-bar { flex-wrap: wrap; gap: 0 10px; padding: 6px 6px 2px 16px; margin-bottom: 28px; border-radius: 20px; }
+  .case-bar-title { min-height: 44px; }
+  .case-bar-close { min-height: 44px; padding: 0 18px; }
+  .case-bar-steps { order: 3; width: 100%; gap: 4px; padding-right: 10px; }
+  .case-bar-steps li { flex: 1; }
+  .case-bar-steps button, .case-bar-steps button.is-current { width: 100%; height: 4px; padding: 12px 0; }
+  .case-menu { left: 0; right: 0; min-width: 0; }
   .case-snapshot { grid-template-columns: minmax(0, 1fr); padding: 22px; }
   .chapter { padding-block: 44px; }
   .chapter-fig { padding: 12px; }
   .chapter-media { margin-top: 28px; border-radius: 12px; }
-  .media-toggle { opacity: 1; right: 8px; bottom: 8px; padding: 4px 10px; }
+  .media-toggle { opacity: 1; right: 8px; bottom: 8px; min-height: 44px; padding: 0 14px; }
+  .media-expand {
+    position: absolute; left: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 6px;
+    min-height: 44px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+    font-family: var(--mono); font-size: 12px; color: var(--fg);
+    background: color-mix(in srgb, var(--sheet-a) 88%, transparent); border: 1px solid var(--line);
+  }
+  .media-expand .icon { width: 16px; height: 16px; }
   .ask { padding: 0; }
   .outcome-grid, .services-grid { grid-template-columns: minmax(0, 1fr); }
   .case-end { flex-direction: column; align-items: stretch; }

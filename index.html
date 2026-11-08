@@ -35,6 +35,9 @@
     <symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
     <symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 256 256"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32Z"/></symbol>
     <symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
@@ -86,6 +89,12 @@
         <h2 id="what-title" class="h2" data-reveal>What I do</h2>
         <p class="section-lede" data-reveal>Four parts of one job: getting data from its source to a decision someone can act on.</p>
 
+        <div class="rail-steps" data-rail-steps aria-label="Steps">
+          <button type="button" aria-label="Step 1, Data engineering"></button>
+          <button type="button" aria-label="Step 2, Analytics and BI"></button>
+          <button type="button" aria-label="Step 3, AI integration"></button>
+          <button type="button" aria-label="Step 4, Product and leadership"></button>
+        </div>
         <div class="rail" data-rail data-reveal>
           <div class="rail-track" aria-hidden="true"><span class="rail-fill"></span></div>
 
@@ -97,8 +106,10 @@
             <div class="cap-panel" id="cap-p-1" role="region" aria-labelledby="cap-1">
               <div class="cap-inner">
                 <h3>Build the platform underneath</h3>
-                <p>End-to-end pipelines from ingestion through a bronze, silver and gold medallion model to serving layers for BI and AI, on a Microsoft Fabric capacity I set up and run.</p>
+                <p class="short">Pipelines from raw data to clean, governed layers for BI and AI, on Microsoft Fabric.</p>
+                <p class="full">End-to-end pipelines from ingestion through a bronze, silver and gold medallion model to serving layers for BI and AI, on a Microsoft Fabric capacity I set up and run.</p>
                 <ul class="tags"><li>Microsoft Fabric</li><li>Azure SQL</li><li>SQL</li><li>Python</li></ul>
+                <button class="cap-next" type="button" data-cap-next>Next: Analytics and BI<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
               </div>
             </div>
           </div>
@@ -111,8 +122,10 @@
             <div class="cap-panel" id="cap-p-2" role="region" aria-labelledby="cap-2">
               <div class="cap-inner">
                 <h3>Turn data into decisions</h3>
-                <p>Semantic models and Power BI reports that leadership actually uses, consolidated and embedded in one place so teams stop rebuilding the same numbers.</p>
+                <p class="short">Semantic models and Power BI reports in one place, so every team uses the same numbers.</p>
+                <p class="full">Semantic models and Power BI reports that leadership actually uses, consolidated and embedded in one place so teams stop rebuilding the same numbers.</p>
                 <ul class="tags"><li>Power BI</li><li>DAX</li><li>Semantic models</li><li>Power BI Embedded</li></ul>
+                <button class="cap-next" type="button" data-cap-next>Next: AI integration<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
               </div>
             </div>
           </div>
@@ -125,8 +138,10 @@
             <div class="cap-panel" id="cap-p-3" role="region" aria-labelledby="cap-3">
               <div class="cap-inner">
                 <h3>Put AI where the work happens</h3>
-                <p>Plain-language questions on governed data, locally hosted RAG systems and MCP tooling that automates Power BI work. I also drive company-wide AI adoption with YTL AI Labs (ILMU).</p>
+                <p class="short">AI on governed data: plain-language questions, RAG and MCP tools. I lead adoption with YTL AI Labs (ILMU).</p>
+                <p class="full">Plain-language questions on governed data, locally hosted RAG systems and MCP tooling that automates Power BI work. I also drive company-wide AI adoption with YTL AI Labs (ILMU).</p>
                 <ul class="tags"><li>LLMs</li><li>RAG</li><li>Power BI MCP</li><li>n8n</li></ul>
+                <button class="cap-next" type="button" data-cap-next>Next: Product and leadership<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
               </div>
             </div>
           </div>
@@ -139,8 +154,10 @@
             <div class="cap-panel" id="cap-p-4" role="region" aria-labelledby="cap-4">
               <div class="cap-inner">
                 <h3>Ship it and get it adopted</h3>
-                <p>I lead a team of three analysts and own data products from requirements to executive showcase, prioritised by business value and measured by usage. I also run Power BI training across departments.</p>
+                <p class="short">I lead three analysts and own data products from requirements to rollout, plus Power BI training.</p>
+                <p class="full">I lead a team of three analysts and own data products from requirements to executive showcase, prioritised by business value and measured by usage. I also run Power BI training across departments.</p>
                 <ul class="tags"><li>Product ownership</li><li>Team leadership</li><li>Stakeholders</li><li>Training</li></ul>
+                <a class="cap-next" href="#work">See selected work<svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
               </div>
             </div>
           </div>
@@ -175,7 +192,8 @@
                   <text class="cap-t" x="264" y="178">Microsoft Fabric</text>
                 </svg>
               </figure>
-              <p class="proj-body">I designed the pipelines that carry data through a bronze, silver and gold medallion model into serving layers for BI and AI, on a Microsoft Fabric capacity I set up and run. Dashboards, apps and AI features all read from the same governed gold layer, so every team works from the same numbers.</p>
+              <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+              <p class="proj-body more-body">I designed the pipelines that carry data through a bronze, silver and gold medallion model into serving layers for BI and AI, on a Microsoft Fabric capacity I set up and run. Dashboards, apps and AI features all read from the same governed gold layer, so every team works from the same numbers.</p>
               <ul class="tags"><li>Microsoft Fabric</li><li>Azure</li><li>SQL</li><li>Python</li></ul>
             </article>
 
@@ -195,7 +213,8 @@
                   <text class="cap-t" x="452" y="142">daily use</text>
                 </svg>
               </figure>
-              <p class="proj-body">DataHub brings the organisation's dashboards into one place through Power BI Embedded, with access managed in one spot instead of per report. The Design Management System tracks design plans and manhours on Azure SQL, with live Power BI reporting on top. Both are web apps I built on Azure, and both shipped with documentation, video demos and training so teams actually use them.</p>
+              <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+              <p class="proj-body more-body">DataHub brings the organisation's dashboards into one place through Power BI Embedded, with access managed in one spot instead of per report. The Design Management System tracks design plans and manhours on Azure SQL, with live Power BI reporting on top. Both are web apps I built on Azure, and both shipped with documentation, video demos and training so teams actually use them.</p>
               <ul class="tags"><li>Power BI Embedded</li><li>Azure SQL</li><li>Python</li><li>Flask</li></ul>
             </article>
 
@@ -223,7 +242,8 @@
                   </g>
                 </svg>
               </figure>
-              <p class="proj-body">A secure, guardrailed feature inside DataHub that queries the governed semantic model, so answers match the reports people already trust. It runs on ILMU, GLM and Gemini.</p>
+              <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+              <p class="proj-body more-body">A secure, guardrailed feature inside DataHub that queries the governed semantic model, so answers match the reports people already trust. It runs on ILMU, GLM and Gemini.</p>
               <ul class="tags"><li>LLMs</li><li>Semantic models</li><li>Guardrails</li><li>DataHub</li></ul>
             </article>
 
@@ -245,7 +265,8 @@
                   <g class="n"><rect x="392" y="138" width="120" height="40"/><text x="452" y="158">Docs</text></g>
                 </svg>
               </figure>
-              <p class="proj-body">I set up a Power BI MCP workflow so our analysts and BI engineers can model data, build reports from templates and generate documentation with AI. I did the setup, wrote the guides and ran hands-on workshops, alongside the Power BI Foundations and Intermediate training I run for staff across departments.</p>
+              <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+              <p class="proj-body more-body">I set up a Power BI MCP workflow so our analysts and BI engineers can model data, build reports from templates and generate documentation with AI. I did the setup, wrote the guides and ran hands-on workshops, alongside the Power BI Foundations and Intermediate training I run for staff across departments.</p>
               <ul class="tags"><li>Power BI MCP</li><li>Claude Code</li><li>Workshops</li><li>Power BI training</li></ul>
             </article>
 
@@ -309,7 +330,7 @@
 
         <div class="case-body" id="case-body">
           <div class="case-bar" aria-label="Case study progress">
-            <span class="case-bar-title" data-case-current>The manual way</span>
+            <button class="case-bar-title" type="button" data-case-menu aria-expanded="false" aria-controls="case-menu"><span class="case-bar-count" data-case-count>1 of 8</span><span class="case-bar-name" data-case-current>The manual way</span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></button>
             <ol class="case-bar-steps">
               <li><button type="button" data-case-jump="case-manual" aria-label="The manual way"></button></li>
               <li><button type="button" data-case-jump="case-capture" aria-label="Capture"></button></li>
@@ -321,6 +342,16 @@
               <li><button type="button" data-case-jump="case-outcome" aria-label="The outcome"></button></li>
             </ol>
             <button class="case-bar-close" type="button" data-case-close>Close</button>
+            <ol class="case-menu" id="case-menu" hidden>
+              <li><button type="button" data-case-jump="case-manual">The manual way</button></li>
+              <li><button type="button" data-case-jump="case-capture">Capture</button></li>
+              <li><button type="button" data-case-jump="case-engineer">Engineer</button></li>
+              <li><button type="button" data-case-jump="case-model">Model and design</button></li>
+              <li><button type="button" data-case-jump="case-share">Secure and share</button></li>
+              <li><button type="button" data-case-jump="case-ask">Ask ILMU</button></li>
+              <li><button type="button" data-case-jump="case-adopt">Adoption</button></li>
+              <li><button type="button" data-case-jump="case-outcome">The outcome</button></li>
+            </ol>
           </div>
 
           <div class="case-snapshot">
@@ -340,7 +371,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">The manual way</p>
                 <h3 class="chapter-title">Two weeks of typing, every month</h3>
-                <p>Every month the admins received about 25 workshop invoices for the company fleet, some running to many pages. Each one was typed in by hand: the invoice details, the vehicle, and every part and labour line. It took about two weeks, mistakes were hard to catch, and the data could not answer simple questions like which vehicles cost the most.</p>
+                <p class="sum">About 25 fleet invoices a month were typed in by hand. It took two weeks and hid mistakes.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>Every month the admins received about 25 workshop invoices for the company fleet, some running to many pages. Each one was typed in by hand: the invoice details, the vehicle, and every part and labour line. It took about two weeks, mistakes were hard to catch, and the data could not answer simple questions like which vehicles cost the most.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -352,6 +385,7 @@
             </div>
             <figure class="chapter-media" data-video="manual">
               <video muted loop playsinline preload="none" aria-label="The admins type each invoice into a spreadsheet by hand while ten working days fill up."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
           </article>
@@ -361,7 +395,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">Capture</p>
                 <h3 class="chapter-title">AI reads it, a person confirms it</h3>
-                <p>I built an internal web app where admins upload invoice PDFs. Each page is archived first, then sent through an n8n workflow to ILMU models, which read the page and return the invoice header, the vehicle and every line item as structured rows. The app checks the result, flags anything that looks wrong, and a person confirms each invoice in a quick review queue.</p>
+                <p class="sum">Admins upload invoices; ILMU models read each page and a person confirms the result.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>I built an internal web app where admins upload invoice PDFs. Each page is archived first, then sent through an n8n workflow to ILMU models, which read the page and return the invoice header, the vehicle and every line item as structured rows. The app checks the result, flags anything that looks wrong, and a person confirms each invoice in a quick review queue.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -374,6 +410,7 @@
             </div>
             <figure class="chapter-media" data-video="capture">
               <video muted loop playsinline preload="none" aria-label="ILMU models read an invoice page, the fields land in a review screen, a misread vehicle number is fixed by a person, and the record is saved to Azure SQL."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
           </article>
@@ -383,7 +420,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">Engineer</p>
                 <h3 class="chapter-title">Clean data, in layers</h3>
-                <p>Confirmed invoices flow into Microsoft Fabric through a medallion model. Bronze keeps the raw extract, silver cleans and standardises it, and gold shapes it into tidy tables for reporting and AI. Data-health checks run along the way, so the team can see how complete and verified the data is.</p>
+                <p class="sum">Confirmed invoices flow into Microsoft Fabric and are cleaned in layers, from raw extract to tidy tables for BI and AI.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>Confirmed invoices flow into Microsoft Fabric through a medallion model. Bronze keeps the raw extract, silver cleans and standardises it, and gold shapes it into tidy tables for reporting and AI. Data-health checks run along the way, so the team can see how complete and verified the data is.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -396,6 +435,7 @@
             </div>
             <figure class="chapter-media" data-video="engineer">
               <video muted loop playsinline preload="none" aria-label="A raw extract moves from bronze to a cleaned silver record to a gold star schema, while data-health scores count up."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
           </article>
@@ -405,7 +445,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">Model and design</p>
                 <h3 class="chapter-title">Built with AI, checked by a person</h3>
-                <p>I used Claude Code with the Power BI MCP to build the semantic model and the report. The AI wrote and organised the measures, built the pages from a design template and documented the model, and every number passed a validation check before release. Six pages cover spend, vehicles, workshops, parts and labour, data health and the OCR pipeline.</p>
+                <p class="sum">Claude Code and the Power BI MCP built the model and report; every number was checked before release.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>I used Claude Code with the Power BI MCP to build the semantic model and the report. The AI wrote and organised the measures, built the pages from a design template and documented the model, and every number passed a validation check before release. Six pages cover spend, vehicles, workshops, parts and labour, data health and the OCR pipeline.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -419,6 +461,7 @@
             </div>
             <figure class="chapter-media" data-video="model">
               <video muted loop playsinline preload="none" aria-label="Claude Code calls the Power BI MCP to build measures and a report page, which assembles itself and is validated."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
             <figure class="chapter-fig compare" data-compare style="--pos:50%">
@@ -467,7 +510,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">Secure and share</p>
                 <h3 class="chapter-title">Everyone who needs it, without a licence each</h3>
-                <p>The report is published to Power BI Service and embedded in DataHub, the internal portal I built. Staff sign in with their company account and see only the dashboards they have been given, and row-level security narrows each person to the data they are allowed to see. Because DataHub uses Power BI's App Owns Data model, viewers do not need a Power BI licence.</p>
+                <p class="sum">Published to Power BI and embedded in DataHub: each viewer sees only their rows, with no licence needed.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>The report is published to Power BI Service and embedded in DataHub, the internal portal I built. Staff sign in with their company account and see only the dashboards they have been given, and row-level security narrows each person to the data they are allowed to see. Because DataHub uses Power BI's App Owns Data model, viewers do not need a Power BI licence.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -480,6 +525,7 @@
             </div>
             <figure class="chapter-media" data-video="share">
               <video muted loop playsinline preload="none" aria-label="Two viewers are added in DataHub, each limited to their own workshop, and each sees different rows on the same dashboard without a Power BI licence."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
           </article>
@@ -489,7 +535,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">Ask ILMU</p>
                 <h3 class="chapter-title">Ask the data a question</h3>
-                <p>I built a bridge between our data models and ILMU, so anyone viewing the dashboard can ask questions in plain language, right inside DataHub. ILMU answers from the same governed model as the report, can compare months and years, and replies with a table or a chart. Because it runs on ILMU, the data stays with us.</p>
+                <p class="sum">Viewers ask the data questions in plain language inside DataHub, answered by ILMU from the same governed model.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>I built a bridge between our data models and ILMU, so anyone viewing the dashboard can ask questions in plain language, right inside DataHub. ILMU answers from the same governed model as the report, can compare months and years, and replies with a table or a chart. Because it runs on ILMU, the data stays with us.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -502,6 +550,7 @@
             </div>
             <figure class="chapter-media" data-video="ask">
               <video muted loop playsinline preload="none" aria-label="A question is typed into Ask ILMU, the answer comes back as a table, and the same vehicles light up on the dashboard."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
           </article>
@@ -511,7 +560,9 @@
               <div class="chapter-intro">
                 <p class="chapter-label">Adoption</p>
                 <h3 class="chapter-title">Built with the team, not just for them</h3>
-                <p>A tool only saves time if people use it. I ran working sessions with the fleet admins from the first walk-through of the process to sign-off, and produced an AI-made onboarding video that sits next to the dashboard in DataHub. Their feedback shaped the review screens and the dashboard pages.</p>
+                <p class="sum">Working sessions and an AI-made onboarding video got the fleet team using it.</p>
+                <button class="more-toggle" type="button" aria-expanded="false">More detail</button>
+                <div class="more-body"><p>A tool only saves time if people use it. I ran working sessions with the fleet admins from the first walk-through of the process to sign-off, and produced an AI-made onboarding video that sits next to the dashboard in DataHub. Their feedback shaped the review screens and the dashboard pages.</p></div>
               </div>
               <div class="chapter-detail">
                 <ul class="did">
@@ -524,6 +575,7 @@
             </div>
             <figure class="chapter-media" data-video="adopt">
               <video muted loop playsinline preload="none" aria-label="The onboarding video walks through three steps of the dashboard while working sessions tick off from walk-through to sign-off."></video>
+              <button class="media-expand" type="button" data-video-expand aria-label="Expand animation to full screen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Expand</button>
               <button class="media-toggle" type="button" data-video-toggle aria-label="Pause animation">Pause</button>
             </figure>
           </article>
@@ -580,6 +632,11 @@
       </div>
     </section>
   </main>
+
+  <div class="viewer" data-viewer role="dialog" aria-modal="true" aria-label="Animation, full screen" hidden>
+    <div class="viewer-stage"><video muted loop playsinline data-viewer-video></video></div>
+    <button class="viewer-close" type="button" data-viewer-close aria-label="Close full screen"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </div>
 
   <footer class="footer">
     <div class="wrap">

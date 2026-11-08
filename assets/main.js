@@ -146,6 +146,21 @@
       if (e.pointerType !== 'mouse') return;
       pointer.x = e.clientX; pointer.y = e.clientY;
     }, { passive: true });
+    // Touch: the dots glow where a finger lands or drags, then settle back
+    var touchTimer = null;
+    var touchAt = function (e) {
+      if (e.pointerType === 'mouse') return;
+      clearTimeout(touchTimer);
+      pointer.x = e.clientX; pointer.y = e.clientY;
+    };
+    var touchEnd = function (e) {
+      if (e.pointerType === 'mouse') return;
+      touchTimer = setTimeout(function () { pointer.x = pointer.y = -1e4; }, 700);
+    };
+    window.addEventListener('pointerdown', touchAt, { passive: true });
+    window.addEventListener('pointermove', touchAt, { passive: true });
+    window.addEventListener('pointerup', touchEnd, { passive: true });
+    window.addEventListener('pointercancel', touchEnd, { passive: true });
     document.documentElement.addEventListener('pointerleave', function () {
       pointer.x = pointer.y = -1e4; kick();
     });
@@ -287,6 +302,33 @@
     layoutTrack();
     window.addEventListener('resize', layoutTrack);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutTrack);
+
+    // Phones: the steps are swipeable cards. The segmented bar follows the card in
+    // view; tapping a segment or a card's Next button moves to that card.
+    var railSteps = Array.prototype.slice.call(document.querySelectorAll('[data-rail-steps] button'));
+    var phoneRail = window.matchMedia('(max-width: 719px)');
+    var goToCard = function (i) {
+      rail.scrollTo({ left: caps[i].offsetLeft - rail.offsetLeft - parseFloat(getComputedStyle(rail).paddingLeft), behavior: 'smooth' });
+    };
+    var markStep = function (i) {
+      railSteps.forEach(function (b, j) {
+        b.classList.toggle('is-current', j === i);
+        b.classList.toggle('is-done', j < i);
+        if (j === i) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+      });
+    };
+    railSteps.forEach(function (b, i) { b.addEventListener('click', function () { goToCard(i); }); });
+    caps.forEach(function (cap, i) {
+      var next = cap.querySelector('[data-cap-next]');
+      if (next) next.addEventListener('click', function () { goToCard(i + 1); });
+    });
+    var cardObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && phoneRail.matches) markStep(caps.indexOf(entry.target));
+      });
+    }, { root: rail, threshold: 0.6 });
+    caps.forEach(function (cap) { cardObserver.observe(cap); });
+    markStep(0);
   }
 
   /* Selected work: on desktop a sticky stage follows the project in view */
@@ -339,13 +381,41 @@
 
     caseBody.hidden = true;
 
+    var barCount = caseBody.querySelector('[data-case-count]');
+    var menuBtn = caseBody.querySelector('[data-case-menu]');
+    var caseMenu = caseBody.querySelector('.case-menu');
+    var menuItems = Array.prototype.slice.call(caseMenu.querySelectorAll('button'));
     var setChapter = function (i) {
       barTitle.textContent = chapters[i].getAttribute('data-chapter');
-      barSteps.forEach(function (b, j) {
-        b.classList.toggle('is-current', j === i);
-        b.classList.toggle('is-done', j < i);
+      barCount.textContent = (i + 1) + ' of ' + chapters.length;
+      [barSteps, menuItems].forEach(function (list) {
+        list.forEach(function (b, j) {
+          b.classList.toggle('is-current', j === i);
+          b.classList.toggle('is-done', j < i);
+        });
       });
     };
+    var closeCaseMenu = function () { caseMenu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); };
+    menuBtn.addEventListener('click', function () {
+      var open = caseMenu.hidden;
+      caseMenu.hidden = !open;
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    menuItems.forEach(function (b) { b.addEventListener('click', closeCaseMenu); });
+    document.addEventListener('click', function (e) {
+      if (!caseMenu.hidden && !e.target.closest('.case-bar')) closeCaseMenu();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCaseMenu(); });
+
+    // "More detail": on phones the full paragraph sits behind this toggle
+    document.querySelectorAll('.more-toggle').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var box = b.closest('.chapter, .proj');
+        var open = box.classList.toggle('is-more');
+        b.setAttribute('aria-expanded', String(open));
+        b.textContent = open ? 'Less detail' : 'More detail';
+      });
+    });
 
     // Chapter loops: a dark and a light render of each, loaded only once the
     // case study is open and swapped when the theme changes
@@ -375,6 +445,52 @@
         if (paused) v.pause(); else playVideo(fig);
       });
     });
+    // Full-screen viewer: on phones a loop can be opened full screen, sideways,
+    // so the text inside it is readable
+    var viewer = document.querySelector('[data-viewer]');
+    var viewerVideo = viewer.querySelector('[data-viewer-video]');
+    var viewerFrom = null;
+    var openViewer = function (fig) {
+      loadVideo(fig);
+      var inline = fig.querySelector('video');
+      viewerFrom = fig;
+      inline.pause();
+      viewerVideo.poster = inline.poster;
+      viewerVideo.src = inline.getAttribute('src');
+      viewerVideo.currentTime = inline.currentTime || 0;
+      viewer.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var p = viewerVideo.play();
+      if (p && p.catch) p.catch(function () {});
+      viewer.querySelector('[data-viewer-close]').focus({ preventScroll: true });
+      // Where the browser allows it, go truly full screen in landscape
+      if (viewer.requestFullscreen) {
+        viewer.requestFullscreen().then(function () {
+          if (screen.orientation && screen.orientation.lock) return screen.orientation.lock('landscape');
+        }).catch(function () {});
+      }
+    };
+    var closeViewer = function () {
+      if (viewer.hidden) return;
+      viewerVideo.pause();
+      viewer.hidden = true;
+      document.body.style.overflow = '';
+      if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function () {});
+      if (screen.orientation && screen.orientation.unlock) { try { screen.orientation.unlock(); } catch (e) {} }
+      if (viewerFrom) {
+        viewerFrom.querySelector('[data-video-expand]').focus({ preventScroll: true });
+        playVideo(viewerFrom);
+      }
+    };
+    viewer.querySelector('[data-viewer-close]').addEventListener('click', closeViewer);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeViewer(); });
+    document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && !viewer.hidden) closeViewer(); });
+    var phoneMedia = window.matchMedia('(max-width: 719px)');
+    media.forEach(function (fig) {
+      fig.querySelector('[data-video-expand]').addEventListener('click', function () { openViewer(fig); });
+      fig.querySelector('video').addEventListener('click', function () { if (phoneMedia.matches) openViewer(fig); });
+    });
+
     var mediaObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var fig = entry.target;
